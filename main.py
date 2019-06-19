@@ -41,11 +41,11 @@ def index():
     return form
 
 
-@app.route("/", method=['POST'])
+@app.route("/", methods=['POST'])
 def encrypt():
-    rot = request.form['rot']
-    text = request.form['text']
-    encrypted_string = rotate_string(rot, text) 
+    rot = int(request.form['rot'])
+    text = str(request.form['text'])
+    encrypted_string = rotate_string(text, rot) 
 
     #Return the encrypted string wrapped in <h1> tags, to be rendered in the browser
     return encrypted_string
